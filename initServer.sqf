@@ -1,1 +1,4 @@
-[] execVM "MHQ\MHQ_script.sqf";
+[
+	"B_MRAP_01_F",	//- класс нейм КШМ
+	[0,0,0]		//- кординаты где он будет появлятся в начале и после смерти, можно использовать поизцию предмета getPos player или позицию маркера getMarkerPos "Marker_1"
+] execVM "MHQ_script.sqf";
