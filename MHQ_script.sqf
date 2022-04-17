@@ -117,7 +117,6 @@ Teleport_mhq = True;
 	params["_class_name_mhq_1","_arry_pos"];
 	waitUntil{
 		MHQ_1 = _class_name_mhq_1 createVehicle _arry_pos;
-		[MHQ_1, 1] call ace_cargo_fnc_setSize;
 		publicVariable "MHQ_1";
 
 		[]call fnc_add_action_to_mhq;
