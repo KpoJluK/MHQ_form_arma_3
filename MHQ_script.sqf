@@ -1,11 +1,30 @@
+/*
 
-// 
-// 
-// 
+в 97 сточке поменять 
+"B_MRAP_01_F" - класс нейм КШМ
+[0,0,0] - кординаты где он будет появлятся в начале и после смерти
 
+// вставлять в инит передмета на базе для телепортации на кшм!(с 9 сточки по 25 включительно! )
 
-
-
+[ 
+ this,            
+ "<t color='#ff2e2e'>Переместиться к КШМ</t>",           
+ "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",  
+ "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",  
+ "_this distance _target < 3",       
+ "_caller distance _target < 3",       
+ {},              
+ {},              
+ { []spawn fnc_teleport },     
+ {},              
+ [],              
+ 1,              
+ 0,              
+ false,             
+ false             
+] call BIS_fnc_holdActionAdd;
+ 
+*/ 
 
 
 
@@ -28,7 +47,8 @@ fnc_add_action_to_mhq = {
 			[]call fnc_romove_action_to_mhq;				
 			teleport1 = true;
 			publicVariable "teleport1";
-			[MHQ_1, -1] call ace_cargo_fnc_setSize;
+			MHQ_1 setFuel 0;
+			MHQ_1 setVehicleLock "LOCKED";
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
@@ -59,7 +79,8 @@ fnc_romove_action_to_mhq = {
 			[]call fnc_add_action_to_mhq;
 			teleport1 = false;
 			publicVariable "teleport1";
-			[MHQ_1, 1] call ace_cargo_fnc_setSize;
+			MHQ_1 setFuel 1;
+			MHQ_1 setVehicleLock "UNLOCKED";
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
@@ -94,7 +115,7 @@ Teleport_mhq = True;
 
 0 spawn{
 	waitUntil{
-		MHQ_1 = "Land_TentDome_F" createVehicle pos_base;
+		MHQ_1 = "B_MRAP_01_F" createVehicle [0,0,0];
 		[MHQ_1, 1] call ace_cargo_fnc_setSize;
 		publicVariable "MHQ_1";
 
