@@ -48,7 +48,7 @@ fnc_add_action_to_mhq = {
 			publicVariable "teleport1";
 			MHQ_1 setFuel 0;
 			MHQ_1 setVehicleLock "LOCKED";
-			player action ["Eject", crew MHQ_1];
+			player action ["Eject", MHQ_1];
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
