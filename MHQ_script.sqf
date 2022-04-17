@@ -1,6 +1,6 @@
 /*
 
-в 97 сточке поменять 
+в 119 сточке поменять 
 "B_MRAP_01_F" - класс нейм КШМ
 [0,0,0] - кординаты где он будет появлятся в начале и после смерти
 
@@ -26,7 +26,8 @@
  
 */ 
 
-
+teleport1 = true;
+publicVariable "teleport1";
 
 // deploy_mhq
 
@@ -49,6 +50,7 @@ fnc_add_action_to_mhq = {
 			publicVariable "teleport1";
 			MHQ_1 setFuel 0;
 			MHQ_1 setVehicleLock "LOCKED";
+			player action ["Eject", MHQ_1];
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
@@ -113,7 +115,7 @@ publicVariable "fnc_teleport";
 
 Teleport_mhq = True;
 
-0 spawn{
+[] spawn{
 	waitUntil{
 		MHQ_1 = "B_MRAP_01_F" createVehicle [0,0,0];
 		[MHQ_1, 1] call ace_cargo_fnc_setSize;
