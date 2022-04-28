@@ -47,7 +47,6 @@ fnc_add_action_to_mhq = {
 			teleport1 = true;
 			publicVariable "teleport1";
 			MHQ_1 setFuel 0;
-			MHQ_1 setVehicleLock "LOCKED";
 			player action ["Eject", MHQ_1];
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
@@ -80,7 +79,6 @@ fnc_romove_action_to_mhq = {
 			teleport1 = false;
 			publicVariable "teleport1";
 			MHQ_1 setFuel 1;
-			MHQ_1 setVehicleLock "UNLOCKED";
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
